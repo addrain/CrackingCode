@@ -39,7 +39,7 @@ void List::DeleteNode(int delData){
         temp = curr;
         curr = curr->next;
     }
-    if(curr == NULL){
+    if(curr->next == NULL && curr->data != delData){
         cout << "Data " << delData << " not found" << endl;
         delete delPtr;
     } else {

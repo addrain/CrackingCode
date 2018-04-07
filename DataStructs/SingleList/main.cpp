@@ -12,7 +12,7 @@ int main(int argc, char** argv){
     test.AddNode(3);
     test.PrintList();
 
-    test.DeleteNode(10);
+    test.DeleteNode(2);
     test.PrintList();
 
     return 0;
