@@ -1,34 +1,38 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "List.h"
+#include "DList.h"
 
 using namespace std;
 
-List::List(){
+DList::DList(){
     head = NULL;
+    tail = NULL;
     curr = NULL;
     temp = NULL;
 }
 
-void List::AddNode(int addData){
+void DList::AddNode(int addData){
     nodePtr n = new node;
     n->next = NULL;
+    n->prev = NULL;
     n->data = addData;
 
     if(head != NULL){
         curr = head;
-        //sets the current node to the newly added node
-        while (curr->next != NULL){
+        while(curr->next != NULL){
             curr = curr->next;
         }
         curr->next = n;
+        n->prev = curr;
+        tail = n;
     }else{
         head = n;
+        tail = n;
     }
 }
 
-void List::DeleteNode(int delData){
+void DList::DeleteNode(int delData){
     nodePtr delPtr = NULL;
     
     temp = head;
@@ -46,8 +50,15 @@ void List::DeleteNode(int delData){
         delPtr = curr;
         curr = curr->next;
         temp->next = curr;
+        if(curr != NULL){
+            curr->prev = temp;
+        }else{
+            tail = temp;
+        }
+        cout << "entered\n";
         if(delPtr == head){
             head = head->next;
+            head->prev = NULL;
             temp = NULL;
         }
         delete delPtr;
@@ -55,12 +66,20 @@ void List::DeleteNode(int delData){
     }
 }
 
-void List::PrintList(){
-    //need to catch segmentation fault for an empty list
+void DList::PrintList(){
     curr = head;
-    while (curr->next != NULL){
+    while(curr->next != NULL){
         cout << curr->data << " ";
         curr = curr->next;
+    }
+    cout << curr->data << endl;
+}
+
+void DList::PrintBackwards(){
+    curr = tail;
+    while(curr->prev != NULL){
+        cout << curr->data << " ";
+        curr = curr->prev;
     }
     cout << curr->data << endl;
 }

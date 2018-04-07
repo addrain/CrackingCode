@@ -10,9 +10,10 @@ int main(int argc, char** argv){
     test.AddNode(8);
     test.AddNode(1);
     test.AddNode(3);
+
     test.PrintList();
 
-    test.DeleteNode(2);
+    test.DeleteNode(9);
     test.PrintList();
 
     return 0;
