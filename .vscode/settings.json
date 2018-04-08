@@ -3,6 +3,11 @@
         "iostream": "cpp",
         "array": "cpp",
         "ostream": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "vector": "cpp",
+        "xstring": "cpp",
+        "ios": "cpp",
+        "xiosbase": "cpp",
+        "xutility": "cpp"
     }
 }
