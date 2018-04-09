@@ -8,6 +8,10 @@
         "xstring": "cpp",
         "ios": "cpp",
         "xiosbase": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "xlocale": "cpp",
+        "algorithm": "cpp",
+        "initializer_list": "cpp",
+        "type_traits": "cpp"
     }
 }
