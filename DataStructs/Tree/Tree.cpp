@@ -11,6 +11,8 @@ Tree::Tree(){
 
 void Tree::insert(int data){
     nodePtr n = new node;
+    n->right = NULL;
+    n->left = NULL;
     n->data = data;
     if(root == NULL){
         root = n;
@@ -42,6 +44,19 @@ void Tree::insert(int data){
         }
     }
 }
+void Tree::removeHelper(nodePtr parent, int data){
+    if(parent == NULL){
+        return;
+    }
+    
+}
+void Tree::remove(int data){
+    if(root == NULL)
+        return;
+    parent = root;
+    removeHelper(parent, data);
+
+}
 void Tree::printHelper(nodePtr parent){
     if(parent == NULL){
         return;
@@ -52,4 +67,5 @@ void Tree::printHelper(nodePtr parent){
 }
 void Tree::print(){
     printHelper(root);
+    cout << endl;
 }

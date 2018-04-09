@@ -13,9 +13,11 @@ private:
     nodePtr curr;
 
     void printHelper(nodePtr parent);
+    void removeHelper(nodePtr parent, int data);
 public:
     Tree();
     void insert(int data);
+    void remove(int data);
     void print();
 };
 
