@@ -66,10 +66,18 @@ void Tree::removeHelper(nodePtr delNode){
     if(delNode == NULL)
         return;
     if(delNode->parent == NULL){
-        cout << "REMOVING ROOT\n";
+        cout << "REMOVING ROOT (NOT REALLY)\n";
+        return;
     }
     if(delNode->left == NULL && delNode->right == NULL){
         cout << "Parent of " << delNode->data << " is " << delNode->parent->data << endl;
+        if(delNode->parent->right == delNode){
+            delNode->parent->right = NULL;
+            cout << "IS RIGHT NODE\n";
+        }else{
+            delNode->parent->left = NULL;
+            cout << "IS LEFT NODE\n";
+        }
     }
     //check for three remove cases here.  implement later.
 }
