@@ -13,7 +13,8 @@ private:
     nodePtr curr;
 
     void printHelper(nodePtr parent);
-    void removeHelper(nodePtr parent, int data);
+    void removeHelper(nodePtr delNode);
+    nodePtr fetchNode(nodePtr parent, int data);
 public:
     Tree();
     void insert(int data);
