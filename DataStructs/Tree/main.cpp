@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char** argv){
     Tree test;
-    
+
     test.insert(9);
     test.insert(10);
     test.insert(1);
@@ -15,7 +15,7 @@ int main(int argc, char** argv){
     test.insert(10);
 
     test.remove(10);
-    test.remove(99);
+    test.remove(9);
 
     test.print();
 }

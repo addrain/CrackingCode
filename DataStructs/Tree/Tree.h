@@ -7,6 +7,7 @@ private:
         int data;
         node* left;
         node* right;
+        node* parent;
     }* nodePtr;
 
     nodePtr root;

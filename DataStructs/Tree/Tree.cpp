@@ -22,6 +22,7 @@ void Tree::insert(int data){
         root = n;
         root->left = NULL;
         root->right = NULL;
+        root->parent = NULL;
         cout << "Root made\n";
     }else{
         curr = root;
@@ -30,6 +31,7 @@ void Tree::insert(int data){
                 if(curr->left == NULL){
                     //cout << "left was null\n";
                     curr->left = n;
+                    curr->left->parent = curr;
                     break;
                 }else{
                     //cout << "left was not null\n";
@@ -39,6 +41,7 @@ void Tree::insert(int data){
                 if(curr->right == NULL){
                     //cout << "right was null\n";
                     curr->right = n;
+                    curr->right->parent = curr;
                     break;
                 }else{
                     //cout << "right was not null with: " << curr->right->data << "\n";
@@ -50,9 +53,8 @@ void Tree::insert(int data){
 }
 
 Tree::nodePtr Tree::fetchNode(nodePtr parent, int data){
-    if(parent == NULL){
+    if(parent == NULL)
         return NULL;
-    }
     fetchNode(parent->left, data);
     if(parent->data == data){
         cout << "Data found: " << parent->data << endl;
@@ -61,6 +63,14 @@ Tree::nodePtr Tree::fetchNode(nodePtr parent, int data){
     fetchNode(parent->right, data);
 }
 void Tree::removeHelper(nodePtr delNode){
+    if(delNode == NULL)
+        return;
+    if(delNode->parent == NULL){
+        cout << "REMOVING ROOT\n";
+    }
+    if(delNode->left == NULL && delNode->right == NULL){
+        cout << "Parent of " << delNode->data << " is " << delNode->parent->data << endl;
+    }
     //check for three remove cases here.  implement later.
 }
 void Tree::remove(int data){
